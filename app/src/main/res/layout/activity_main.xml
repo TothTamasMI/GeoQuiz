@@ -4,6 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     android:gravity="center"
     android:orientation="vertical">
 
@@ -12,41 +13,64 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="24dp"
+        android:background="@drawable/text_view_shape"
+        android:textColor="@android:color/white"
         tools:text="@string/question_australia" />
 
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="29dp" />
+
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="190dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/true_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/button_shape"
             android:text="@string/true_button" />
 
-        <Button
+        <Space
+            android:layout_width="32dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/false_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/button_shape"
             android:text="@string/false_button" />
 
     </LinearLayout>
 
 
-        <Button
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="90dp" />
+
+    <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/cheat_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
+            android:background="@drawable/button_shape"
             android:text="@string/cheat_button" />
 
-        <Button
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="11dp" />
+
+    <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/next_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/next_button"
-            app:icon="@drawable/ic_arrow_right"
+            android:background="@drawable/button_shape"
+            android:drawableEnd="@drawable/ic_arrow_right"
             app:iconGravity="end"/>
 
 </LinearLayout>
