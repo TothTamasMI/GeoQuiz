@@ -7,7 +7,6 @@ import androidx.activity.viewModels
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 
-const val IS_CHEATED_KEY = "IS_CHEATED_KEY"
 
 class CheatViewModel(private val savedStateHandle: SavedStateHandle): ViewModel(){
 

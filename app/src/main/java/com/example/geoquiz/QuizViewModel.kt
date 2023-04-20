@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 
 const val CURRENT_INDEX_KEY = "CURRENT_INDEX_KEY"
 const val IS_CHEATER_KEY = "IS_CHEATER_KEY"
+const val IS_CHEATED_KEY = "IS_CHEATED_KEY"
 
 class QuizViewModel(private val savedStateHandle: SavedStateHandle): ViewModel() {
     private var currentIndex: Int
@@ -27,6 +28,10 @@ class QuizViewModel(private val savedStateHandle: SavedStateHandle): ViewModel()
     var isCheater: Boolean
         get() = savedStateHandle.get(IS_CHEATER_KEY) ?: false
         set(value) = savedStateHandle.set(IS_CHEATER_KEY, value)
+
+    var isCheated: Boolean
+        get() = savedStateHandle.get(IS_CHEATED_KEY) ?: false
+        set(value) = savedStateHandle.set(IS_CHEATED_KEY, value)
 
     fun moveToNext(){
         currentIndex = (currentIndex + 1) % questionBank.size

@@ -15,7 +15,7 @@ const val EXTRA_ANSWER_SHOWN = "com.example.geoquiz.answer_shown"
 class CheatActivity : AppCompatActivity() {
 
     private var answerIsTrue = false
-    private val cheatViewModel: CheatViewModel by viewModels()
+    private val quizViewModel: QuizViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +31,11 @@ class CheatActivity : AppCompatActivity() {
                     else -> R.string.false_button
                 }
             binding.answerTextView.setText(answerText)
+            quizViewModel.isCheated = true
+            setAnswearShownResult(true)
+        }
+
+        if(quizViewModel.isCheated){
             setAnswearShownResult(true)
         }
     }
