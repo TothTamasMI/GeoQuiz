@@ -27,10 +27,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.falseButton.setOnClickListener {
-            checkAnswer(false)
+            sendAnswer(false)
         }
         binding.trueButton.setOnClickListener {
-            checkAnswer(true)
+            sendAnswer(true)
         }
         binding.nextButton.setOnClickListener {
             quizViewModel.moveToNext()
@@ -48,6 +48,13 @@ class MainActivity : AppCompatActivity() {
     private fun updateQuestion(){
         val questionTextResId = quizViewModel.currentQuestionText
         binding.questionTextView.setText(questionTextResId)
+    }
+
+    private fun sendAnswer(value: Boolean){
+        if(!quizViewModel.isAnswered){
+            checkAnswer(value)
+            quizViewModel.answeredQuestion()
+        }
     }
 
     private fun checkAnswer(userAnswer: Boolean){

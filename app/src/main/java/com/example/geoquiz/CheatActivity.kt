@@ -31,11 +31,11 @@ class CheatActivity : AppCompatActivity() {
                     else -> R.string.false_button
                 }
             binding.answerTextView.setText(answerText)
-            quizViewModel.isCheated = true
+            quizViewModel.isCheater = true
             setAnswearShownResult(true)
         }
 
-        if(quizViewModel.isCheated){
+        if(quizViewModel.isCheater){
             setAnswearShownResult(true)
         }
     }
