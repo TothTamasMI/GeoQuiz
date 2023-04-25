@@ -33,13 +33,20 @@ class MainActivity : AppCompatActivity() {
             sendAnswer(true)
         }
         binding.nextButton.setOnClickListener {
+            if(quizViewModel.isQuizEnded){
+                val message = getString(R.string.score_toast) + quizViewModel.calculateScore() * 100 + "%"
+                Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+            }
+
             quizViewModel.moveToNext()
             updateQuestion()
         }
         binding.cheatButton.setOnClickListener {
-            val answerIsTrue = quizViewModel.currentQuestionAnswer
-            val intent = CheatActivity.newIntent(this@MainActivity, answerIsTrue)
-            cheatLauncher.launch(intent)
+            if(!quizViewModel.isAnswered && !quizViewModel.isCheatMaxed){
+                val answerIsTrue = quizViewModel.currentQuestionAnswer
+                val intent = CheatActivity.newIntent(this@MainActivity, answerIsTrue)
+                cheatLauncher.launch(intent)
+            }
         }
 
         updateQuestion()
@@ -62,10 +69,13 @@ class MainActivity : AppCompatActivity() {
 
         val messageResId = when {
             quizViewModel.isCheater -> R.string.judgment_toast
-            userAnswer == correctAnswer -> R.string.correct_toast
+            userAnswer == correctAnswer -> {
+                quizViewModel.correctAnswer()
+                R.string.correct_toast }
             else -> R.string.incorrect_toast
         }
-
         Toast.makeText(this, messageResId, Toast.LENGTH_SHORT).show()
+
+
     }
 }

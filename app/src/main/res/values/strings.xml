@@ -17,6 +17,7 @@
     <string name="correct_toast">Correct Answer!</string>
     <string name="incorrect_toast">Incorrect Answer!</string>
     <string name="judgment_toast">Cheating is wrong.</string>
+    <string name="score_toast">Your score is: </string>
 
     <string name="warning_text">Are you sure you want to do this?</string>
 </resources>
